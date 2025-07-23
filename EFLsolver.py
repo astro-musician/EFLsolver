@@ -156,24 +156,26 @@ class w0waCDM:
         else:
             raise ValueError('Redshift-time relation is not bijective for this cosmological model.')
 
-cosmo = w0waCDM(67.6,0.311,0.689,w0=-0.84,wa=-0.42)
-LCDM = w0waCDM(67.6,0.311,0.689)
-time = np.linspace(cosmo.age_past,1,1000)
-lcdm_time = np.linspace(LCDM.age_past,1,1000)
-print(f'Light cone size : {300/cosmo.H0*cosmo.light_cone():.2f} Gpc = {3.26*300/cosmo.H0*cosmo.light_cone():.2f} Glyr')
-print(f'Radius : {300/cosmo.H0*cosmo.radius(0):.2f} Gpc')
-print(f'Light cone size at time limit: {300/cosmo.H0*cosmo.event_horizon():.2f} Gpc = {3.26*300/cosmo.H0*cosmo.event_horizon():.2f} Glyr')
-print(f'Age : {-cosmo.hubble_time_gyr*cosmo.age_past:.2f} Gyr')
+# if __name__=="__main__":
+    
+#     cosmo = w0waCDM(67.6,0.311,0.689,w0=-0.84,wa=-0.42)
+#     LCDM = w0waCDM(67.6,0.311,0.689)
+#     time = np.linspace(cosmo.age_past,1,1000)
+#     lcdm_time = np.linspace(LCDM.age_past,1,1000)
+#     print(f'Light cone size : {300/cosmo.H0*cosmo.light_cone():.2f} Gpc = {3.26*300/cosmo.H0*cosmo.light_cone():.2f} Glyr')
+#     print(f'Radius : {300/cosmo.H0*cosmo.radius(0):.2f} Gpc')
+#     print(f'Light cone size at time limit: {300/cosmo.H0*cosmo.event_horizon():.2f} Gpc = {3.26*300/cosmo.H0*cosmo.event_horizon():.2f} Glyr')
+#     print(f'Age : {-cosmo.hubble_time_gyr*cosmo.age_past:.2f} Gyr')
 
-plot=True
-if plot:
-    plt.style.use('aesthetics.mplstyle')
-    plt.plot(cosmo.hubble_time_gyr*time,cosmo.a(time),linewidth=1,label=f'$w_0 w_a$CDM')
-    plt.plot(LCDM.hubble_time_gyr*lcdm_time,LCDM.a(lcdm_time),linewidth=1,label=f'$\\Lambda$CDM')
-    plt.plot([0],[1],'+r',markersize=20)
-    plt.xlabel("Gyr")
-    plt.ylabel(f"Scale factor")
-    # plt.xlim([LCDM.hubble_time_gyr*LCDM.age_past,None])
-    plt.ylim([0,None])
-    plt.legend()
-    plt.show()
+#     plot=True
+#     if plot:
+#         #plt.style.use('aesthetics.mplstyle')
+#         plt.plot(cosmo.hubble_time_gyr*time,cosmo.a(time),linewidth=1,label=f'$w_0 w_a$CDM')
+#         plt.plot(LCDM.hubble_time_gyr*lcdm_time,LCDM.a(lcdm_time),linewidth=1,label=f'$\\Lambda$CDM')
+#         plt.plot([0],[1],'+r',markersize=20)
+#         plt.xlabel("Gyr")
+#         plt.ylabel(f"Scale factor")
+#         # plt.xlim([LCDM.hubble_time_gyr*LCDM.age_past,None])
+#         plt.ylim([0,None])
+#         plt.legend()
+#         plt.show()
